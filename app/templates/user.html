@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+		 <div class="card" style="color: #48c9b0">
+
+		      <h3>Moj Profil<h3>
+			   </div>
+			  
+			     <div class="jumbotron jumbotron-fluid" style="background-color: #fef65b">
+				    
+				    
+				   	<img src="{{ user.slika }}" style="width: 100%; max-width: 200px; height: auto; "/>
+			 		
+			  <div class="cont1 span_3_of_a4 ">
+				<h1>{{ user.ime }} <br>{{ user.prezime }}</h1><br><br>
+	
+				<h4 class="quick">Mjesto:   {{ user.mjesto }}<br>
+					Spol:   {{ user.spol }}<br>
+					Mail:   {{ user.email }}<br>
+					{% if user == current_user %}
+			<a class="button item_add cbp-vm-icon cbp-vm-add" href="{{ url_for('kreiraj_izlet') }}">Napravi Izlet</a><br>
+		<a class="button item_add cbp-vm-icon cbp-vm-add" href="{{ url_for('edit_profile') }}">Uredi Profil</a></h2>
+		<a class="button item_add cbp-vm-icon cbp-vm-add" href="{{ url_for('popis_izleta') }}">Popis Izleta</a></h2>
+				{% endif %}
+			</div>
+			<div class="clearfix"></div>
+		   </div>
+		</div>
+
+	
+{% endblock %}

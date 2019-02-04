@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron" style="background-color: #fef65b; min-height: 300px;">
+<article class="card-body mx-auto" style="max-width: 400px; color: #FF6600">
+    <h2>Kreiraj izlet</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+         <p><h4>
+            {{ form.naziv.label }}<br>
+            {{ form.naziv(size=32) }}<br>
+            {% for error in form.naziv.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p><h4>
+            {{ form.mjesto.label }}<br>
+            {{ form.mjesto(size=32) }}<br>
+            {% for error in form.mjesto.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+         <p><h4>
+            {{ form.cijena.label }}<br>
+            {{ form.cijena(size=32) }}<br>
+            {% for error in form.cijena.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+         <p><h4>
+            {{ form.detalji.label }}<br>
+            {{ form.detalji(size=32) }}<br>
+            {% for error in form.detalji.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p><h4>
+            {{ form.broj_putnika.label }}<br>
+            {{ form.broj_putnika(size=32) }}<br>
+            {% for error in form.broj_putnika.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p><h4>
+            {{ form.slika.label }}<br>
+            {{ form.slika(size=32) }}<br>
+            {% for error in form.slika.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</article>
+</div>
+
+{% endblock %}

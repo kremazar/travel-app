@@ -1,0 +1,108 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>BIBSICI TRAVEL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../static/js/simpleCart.min.js"> </script>
+<script src="../static/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="../static/css/style.css" rel='stylesheet' type='text/css' />
+<link href="../static/css/component.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+<script src="../static/js/jquery.easydropdown.js"></script>
+<!-- Add fancyBox main JS and CSS files -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+</head>
+
+<body>
+  <div class="header">
+	<div class="container">
+
+		<div class="header-top">
+      		 
+		   <div class="header_right">
+			 
+		    <div class="lang_list">
+		
+			
+			  </select>
+   			</div>
+			<div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+		 
+
+		<div class="apparel_box">
+			<ul class="login">
+				 {% if current_user.is_anonymous %}
+				<li class="login_text"><a href="{{ url_for('prijava') }}"><b>PRIJAVA</b></a></li>
+				<li class="login_text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('registracija') }}"><b>REGISTRACIJA</b></a></li>
+				{% else %}
+				<li class="login_text"><a href="{{ url_for('logout') }}"><b>ODJAVA</b></a></li>
+				{% endif %}
+				<div class='clearfix'></div>
+		    </ul>
+		 	
+		  </div>
+		</div>
+    </div>
+
+
+
+	<div class="main">
+	  <div class="content_box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="menu_box">
+				   	  
+				   	     <ul class="nav">
+								{% if current_user.is_anonymous %}
+								<li><a href=" {{ url_for('index') }}">O Bibsićima</a></li>
+								{% else %}
+								<li><a href=" {{ url_for('index') }}">O Bibsićima</a></li>
+								<li><a href="{{ url_for('pretraga') }}">Izleti</a></li>
+					   	  		<li><a href="{{ url_for('kreiraj_izlet') }}">Osmisli izlet</a></li>
+					   	  		<li><a href="{{url_for('user',username=current_user.username)}}">Moj profil</a></li>	
+								{% endif %}
+					   	 </ul>
+			   	    </div>
+			   	   
+				     <div class="side_banner">
+					   <div class="banner_img"><img src="../static/images/pic9.jpg" class="img-responsive" alt=""/></div>
+					  
+				     </div>
+			
+
+			  </div>
+					<div class="col-md-9">
+			    {% block content %} 
+
+			    {% endblock %}
+	        </div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
+        <div class="footer_bottom">
+        	<div class="container">
+        		<p class="email">Bibsići Travel &nbsp;&nbsp; Rijeka &nbsp;&nbsp; <a href="#">info@bibsici.hr</a></p>
+        	</div>
+        </div>
+
+</body>
+</html>		

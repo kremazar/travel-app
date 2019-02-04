@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form action="" method="post" style="color: #48c9b0">
+        {{ form.hidden_tag() }}
+         <p>
+            {{ form.search.label }}<br>
+            {{ form.search(size=32) }}<br>
+            {% for error in form.search.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <br><br>
+    <div class="container">
+    <div class="row">
+    {% for izleti in izlet %}
+
+    <div class="col-md-6" style=" margin-bottom: 30px; margin-right: -120px;">
+            <div class="card mb-6">
+                <img class="card-img-top " src="{{izleti.slika}}" alt="Card image cap" class="img-responsive" alt="" style="height:200px; width:100px: display:block;">
+                <div class="card-body">
+                    <h4 class="text-uppercase">{{izleti.naziv}}</h4>
+                    <p class="card-text">{{izleti.detalji}}</p>
+                     <p class="text-center"><h3>{{izleti.cijena}} kn</h3></p>
+                        <p> Broj putnika: {{ izleti.broj_putnika }}<br><br>
+                    Rezervirano: {{ izleti.rezervirano }}<br><br>
+                
+                     <a class="button item_add cbp-vm-icon cbp-vm-add" href="{{ url_for('izlet', id=izleti.id )}}">Pregledaj</a>
+
+                     
+                </div>
+            </div>
+        </div>
+
+	  	 {% endfor %}
+{% endblock %}

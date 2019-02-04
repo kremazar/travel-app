@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+	{% for izleti in izlet %}
+
+       <div class="col-md-6" style=" margin-bottom: 30px; margin-right: -120px;">
+            <div class="card mb-6">
+                <img class="card-img-top " src="{{izleti.slika}}" alt="Card image cap" class="img-responsive" alt="" style="height:200px; width:100px: display:block;">
+                <div class="card-body">
+                    <h4 class="text-uppercase">{{izleti.naziv}}</h4>
+                    <p class="card-text">{{izleti.detalji}}</p>
+                     <p class="text-center" stye=""><h3>{{izleti.cijena}} kn<h3></p>
+                
+                     <a class="button item_add cbp-vm-icon cbp-vm-add" href="{{ url_for('izlet', id=izleti.id )}}">Pregledaj</a>
+                     <form action="{{'pretraga'}}" method="POST">
+							<input type="submit" class="button item_add cbp-vm-icon cbp-vm-add" value="Prijavi se">
+						</form>
+                     
+                </div>
+            </div>
+        </div>
+	  	 {% endfor %}
+{% endblock %}

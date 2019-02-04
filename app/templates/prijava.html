@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron" style="background-color: #fef65b; min-height: 300px;">
+<article class="card-body mx-auto" style="max-width: 400px; color: #FF6600">
+    <h2>PRIJAVI SE I ODPUTUJ</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p><h4>
+			
+			<div  style="width: 400px">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+					
+					 {{ form.username.label }}<br>
+					 {{ form.username(size=32) }}<br>
+					 {% for error in form.username.errors %}
+					 <span style="color: red;">[{{ error }}]</span>
+					 {% endfor %}
+					</div>
+				</div> <!-- form-group// -->
+        </p>
+        <p><h4>
+        
+			<div  style="width: 400px">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+				
+					{{ form.password.label }}<br>
+					
+					{{ form.password(size=32) }}<br>
+					{% for error in form.password.errors %}
+				</div>
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div> <!-- form-group// -->                                     
+				<div class="form-group" style="width:200%;">
+				
+				</div> <!-- form-group// -->   
+        </p>
+        <p><h5>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+		<p>{{ form.submit() }}</p>
+    </form>
+	<p style="color: #FF6600"><h5>ŽELIŠ POSTATI BIBSIĆ?<h5><a href="{{ url_for('registracija') }}"  style="color: #48C9B0" ><br><h4>KLIKNI I REGISTRIRAJ SE!<h4></a></p>
+</article>
+</div>
+{% endblock %}

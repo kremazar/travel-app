@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <div class="dreamcrub">
+			  
+                <div  style="color: #48c9b0; size:20px;"><h3>Profil Izleta</h3></div>
+			   </div>
+			   <div class="singel_right">
+			     <div class="labout span_3_of_a1">
+				   <div class="flexslider">
+				   	<img src="{{ izlet.slika }}" style="width: 100%; max-width: 800px; height: auto;"/><br><br>
+			  </div>
+			 
+					</h2>
+					<ul class="list-group">
+							<li class="list-group-item d-flex justify-content-between align-items-left">
+							  Mjesto
+							  <span class="badge badge-primary badge-pill">{{izlet.mjesto}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+							  Cijena
+							  <span class="badge badge-primary badge-pill"> {{izlet.cijena}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+									Izlet organizira:
+							  <span class="badge badge-primary badge-pill">{{ izlet.author.username }}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+							Detalji
+							  <span class="badge badge-primary badge-pill"> {{izlet.detalji}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+							Broj putnika
+							  <span class="badge badge-primary badge-pill"> {{izlet.broj_putnika}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+							Rezervirano mjesta
+							  <span class="badge badge-badge badge-secondary badge-pill"> {{izlet.rezervirano}}</span>
+							</li>
+						  </ul>
+						  {% if izlet.author == current_user %}
+						  <a href="{{ url_for('izlet_update', id=izlet.id) }}">Uredi izlet</a><br><br>
+						  <form action="{{ url_for('delete_izlet', id=izlet.id) }}" method="POST">
+					  <input type="submit" value="DELETE">
+					  </form>{% endif %}
+							 <form action="{{ url_for('pretraga') }}" method="POST">
+								  <input type="submit" class="button item_add cbp-vm-icon cbp-vm-add" value="Prijavi se">
+							  </form>
+			
+			
+			<div class="clearfix"></div>
+		   </div>
+		</div>
+
+{% endblock %}
